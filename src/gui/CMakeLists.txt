@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(gui_sources gui.hpp window.cpp)
+set(gui_sources color.cpp window.cpp)
 
 add_library(gui ${gui_sources})
 target_link_libraries(gui X11)

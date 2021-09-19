@@ -17,28 +17,7 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
+#pragma once
 
-
-void print_info() {
-    std::cout << "Minebuild: A 3D block based game.\n";
-    std::cout << "Minebuild is licensed as GNU GPL v3. See LICENSE for more info.";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
-}
-
-
-void display() {
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
-}
-
-
-int main() {
-    print_info();
-    display();
-}
+typedef  unsigned long long  ULL;
+typedef  unsigned char       UCH;

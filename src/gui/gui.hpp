@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include "../utils.hpp"
+
 
 namespace GUI {
 
@@ -27,6 +29,17 @@ namespace GUI {
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
 
+
+/**
+ * Converts RGB color to X11 color.
+ * R, G, B from 0 to 255
+ */
+ULL rgb(UCH r, UCH g, UCH b);
+
+const ULL black = rgb(0, 0, 0);
+const ULL white = rgb(255, 255, 255);
+
+
 /**
  * Wrapper for display and window.
  */
@@ -34,6 +47,11 @@ class GuiWindow {
 public:
     ~GuiWindow();
     GuiWindow();
+
+    /**
+     * Get next event and store to event.
+     */
+    void next_event(XEvent& event);
 
 private:
     Display* _disp;
