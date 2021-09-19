@@ -21,6 +21,13 @@
 #include "config.hpp"
 
 
+void print_info() {
+    std::cout << "Minebuild: A 3D block based game.\n";
+    std::cout << "Minebuild is licensed as GNU GPL v3. See LICENSE for more info.";
+    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
+}
+
+
 int main() {
-    std::cout << VERSION_MAJOR << "." << VERSION_MINOR << "." << VERSION_PATCH << std::endl;
+    print_info();
 }

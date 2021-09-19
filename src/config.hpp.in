@@ -17,6 +17,6 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#define  VERSION_MAJOR  @Minebuild_VERSION_MAJOR@
-#define  VERSION_MINOR  @Minebuild_VERSION_MINOR@
-#define  VERSION_PATCH  @Minebuild_VERSION_PATCH@
+#define  VMAJOR  @Minebuild_VERSION_MAJOR@
+#define  VMINOR  @Minebuild_VERSION_MINOR@
+#define  VPATCH  @Minebuild_VERSION_PATCH@

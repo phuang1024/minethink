@@ -24,6 +24,11 @@ project(Minebuild VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+find_library(x11_path NAMES X11)
+message(STATUS ${x11_path})
+add_library(X11 STATIC IMPORTED)
+set_target_properties(X11 PROPERTIES IMPORTED_LOCATION ${x11_path})
+
 configure_file(config.hpp.in config.hpp)
 
 add_executable(Minebuild main.cpp)
