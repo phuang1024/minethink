@@ -17,10 +17,6 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-
-
-int main() {
-    std::cout << VERSION_MAJOR << "." << VERSION_MINOR << "." << VERSION_PATCH << std::endl;
-}
+#define  VERSION_MAJOR  @Minebuild_VERSION_MAJOR@
+#define  VERSION_MINOR  @Minebuild_VERSION_MINOR@
+#define  VERSION_PATCH  @Minebuild_VERSION_PATCH@
