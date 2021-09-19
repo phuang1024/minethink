@@ -17,25 +17,34 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
+#include "gui.hpp"
 
 
-void print_info() {
-    std::cout << "Minebuild: A 3D block based game.\n";
-    std::cout << "Minebuild is licensed as GNU GPL v3. See LICENSE for more info.";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
+namespace GUI {
+
+GuiWindow::~GuiWindow() {
+    _close();
 }
 
-
-void display() {
-    GUI::GuiWindow window;
-    while (true);
+GuiWindow::GuiWindow() {
+    _init();
 }
 
+void GuiWindow::_init() {
+    _disp = XOpenDisplay((char*)0);
+    _screen = DefaultScreen(_disp);
+    _win = XCreateSimpleWindow(_disp, DefaultRootWindow(_disp), 0, 0, 1280, 720, 5, 0, 0);
+    _gc = XCreateGC(_disp, _win, 0, 0);
 
-int main() {
-    print_info();
-    display();
+    XSetStandardProperties(_disp, _win, "Minebuild", "Asdf", None, NULL, 0, NULL);
+    XClearWindow(_disp, _win);
+    XMapRaised(_disp, _win);
 }
+
+void GuiWindow::_close() {
+    XFreeGC(_disp, _gc);
+    XDestroyWindow(_disp, _win);
+    XCloseDisplay(_disp);
+}
+
+}  // namespace GUI

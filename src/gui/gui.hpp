@@ -17,25 +17,32 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
+#pragma once
 
 
-void print_info() {
-    std::cout << "Minebuild: A 3D block based game.\n";
-    std::cout << "Minebuild is licensed as GNU GPL v3. See LICENSE for more info.";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
-}
+namespace GUI {
 
+// Including here so won't pollute global
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xos.h>
 
-void display() {
-    GUI::GuiWindow window;
-    while (true);
-}
+/**
+ * Wrapper for display and window.
+ */
+class GuiWindow {
+public:
+    ~GuiWindow();
+    GuiWindow();
 
+private:
+    Display* _disp;
+    Window _win;
+    GC _gc;
+    int _screen;
 
-int main() {
-    print_info();
-    display();
-}
+    void _init();
+    void _close();
+};
+
+}  // namespace GUI

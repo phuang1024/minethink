@@ -17,23 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-cmake_minimum_required(VERSION 3.10)
+set(gui_sources gui.hpp window.cpp)
 
-project(Minebuild VERSION 0.0.1)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-configure_file(config.hpp.in config.hpp)
-
-find_library(x11_path NAMES X11)
-message(STATUS ${x11_path})
-add_library(X11 STATIC IMPORTED)
-set_target_properties(X11 PROPERTIES IMPORTED_LOCATION ${x11_path})
-
-add_subdirectory(gui)
-
-set(Minebuild_sources main.cpp)
-add_executable(Minebuild ${Minebuild_sources})
-
-target_link_libraries(Minebuild gui)
-target_include_directories(Minebuild PUBLIC "${PROJECT_BINARY_DIR}")
+add_library(gui ${gui_sources})
+target_link_libraries(gui X11)
