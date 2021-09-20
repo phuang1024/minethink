@@ -43,6 +43,9 @@ int main() {
     print_info();
 
     Pathlib::Path path;
+    Pathlib::Path path2("asdf");
+    std::cout << path.isabs() << std::endl;
+    std::cout << path2.isabs() << std::endl;
 
     // display();
 }

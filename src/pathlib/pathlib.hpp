@@ -22,6 +22,7 @@
 #include <string>
 
 constexpr int PATH_MAX = 1024;
+constexpr char sep = '/';
 
 
 namespace Pathlib {
@@ -35,6 +36,17 @@ class Path {
 public:
     ~Path();
     Path();
+    Path(std::string path);
+
+    /**
+     * Return path as std::string
+     */
+    std::string& path();
+
+    /**
+     * Check if path is absolute (starts with sep).
+     */
+    bool isabs();
 
 private:
     std::string _path;

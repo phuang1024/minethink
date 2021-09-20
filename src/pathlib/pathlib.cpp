@@ -39,4 +39,19 @@ Path::Path() {
     std::cout << _path << std::endl;
 }
 
+Path::Path(std::string path) {
+    _path = path;
+}
+
+std::string& Path::path() {
+    return _path;
+}
+
+bool Path::isabs() {
+    if (_path.size() == 0)
+        return false;
+    else
+        return _path[0] == '/';
+}
+
 }  // namespace Pathlib
