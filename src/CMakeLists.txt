@@ -25,10 +25,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 configure_file(config.hpp.in config.hpp)
 
-find_library(x11_path NAMES X11)
-message(STATUS ${x11_path})
-add_library(X11 STATIC IMPORTED)
-set_target_properties(X11 PROPERTIES IMPORTED_LOCATION ${x11_path})
+find_library(x11 NAMES X11)
+message(STATUS "X11: ${x11}")
+
+find_library(cv_core NAMES opencv_core)
+find_library(cv_imgproc NAMES opencv_imgproc)
+find_library(cv_highgui NAMES opencv_highgui)
+find_library(cv_imgcodecs NAMES opencv_imgcodecs)
+message(STATUS "OpenCV: ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}")
 
 add_subdirectory(pathlib)
 add_subdirectory(gui)
@@ -37,5 +41,7 @@ add_subdirectory(gui)
 set(Minethink_sources main.cpp)
 add_executable(Minethink ${Minethink_sources})
 
-target_link_libraries(Minethink pathlib gui)# render)
+target_link_libraries(Minethink pathlib gui
+    ${x11}
+    ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs})
 target_include_directories(Minethink PUBLIC "${PROJECT_BINARY_DIR}")
