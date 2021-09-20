@@ -1,5 +1,5 @@
 #
-#  Minebuild
+#  Minethink
 #  3D block based game.
 #  Copyright Patrick Huang 2021
 #

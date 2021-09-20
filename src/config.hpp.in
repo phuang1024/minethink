@@ -1,5 +1,5 @@
 //
-//  Minebuild
+//  Minethink
 //  3D block based game.
 //  Copyright Patrick Huang 2021
 //
@@ -17,6 +17,6 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#define  VMAJOR  @Minebuild_VERSION_MAJOR@
-#define  VMINOR  @Minebuild_VERSION_MINOR@
-#define  VPATCH  @Minebuild_VERSION_PATCH@
+#define  VMAJOR  @Minethink_VERSION_MAJOR@
+#define  VMINOR  @Minethink_VERSION_MINOR@
+#define  VPATCH  @Minethink_VERSION_PATCH@

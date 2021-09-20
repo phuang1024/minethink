@@ -1,5 +1,5 @@
 #
-#  Minebuild
+#  Minethink
 #  3D block based game.
 #  Copyright Patrick Huang 2021
 #
@@ -19,7 +19,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(Minebuild VERSION 0.0.1)
+project(Minethink VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -33,8 +33,8 @@ set_target_properties(X11 PROPERTIES IMPORTED_LOCATION ${x11_path})
 add_subdirectory(gui)
 add_subdirectory(render)
 
-set(Minebuild_sources main.cpp)
-add_executable(Minebuild ${Minebuild_sources})
+set(Minethink_sources main.cpp)
+add_executable(Minethink ${Minethink_sources})
 
-target_link_libraries(Minebuild gui render)
-target_include_directories(Minebuild PUBLIC "${PROJECT_BINARY_DIR}")
+target_link_libraries(Minethink gui render)
+target_include_directories(Minethink PUBLIC "${PROJECT_BINARY_DIR}")

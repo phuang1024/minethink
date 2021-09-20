@@ -1,5 +1,5 @@
 //
-//  Minebuild
+//  Minethink
 //  3D block based game.
 //  Copyright Patrick Huang 2021
 //
@@ -40,7 +40,7 @@ void GuiWindow::_init() {
     _win = XCreateSimpleWindow(_disp, DefaultRootWindow(_disp), 0, 0, 1280, 720, 5, white, white);
     _gc = XCreateGC(_disp, _win, 0, 0);
 
-    XSetStandardProperties(_disp, _win, "Minebuild", "Asdf", None, NULL, 0, NULL);
+    XSetStandardProperties(_disp, _win, "Minethink", "Asdf", None, NULL, 0, NULL);
     XSelectInput(_disp, _win, ExposureMask | ButtonPressMask | KeyPressMask);
     XSetBackground(_disp, _gc, white);
     XSetForeground(_disp, _gc, black);

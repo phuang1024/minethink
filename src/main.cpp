@@ -1,5 +1,5 @@
 //
-//  Minebuild
+//  Minethink
 //  3D block based game.
 //  Copyright Patrick Huang 2021
 //
@@ -23,8 +23,8 @@
 
 
 void print_info() {
-    std::cout << "Minebuild: A 3D block based game.\n";
-    std::cout << "Minebuild is licensed as GNU GPL v3. See LICENSE for more info.\n";
+    std::cout << "Minethink: A 3D block based game.\n";
+    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
     std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
 }
 
