@@ -17,32 +17,27 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "pathlib/pathlib.hpp"
-#include "gui/gui.hpp"
+#pragma once
+
+#include <string>
+
+constexpr int PATH_MAX = 1024;
 
 
-void print_info() {
-    std::cout << "Minethink: A 3D block based game.\n";
-    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
-}
+namespace Pathlib {
 
+/**
+ * Get path of this executable.
+ */
+std::string mypath();
 
-void display() {
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
-}
+class Path {
+public:
+    ~Path();
+    Path();
 
+private:
+    std::string _path;
+};
 
-int main() {
-    print_info();
-
-    Pathlib::Path path;
-
-    // display();
-}
+}  // namespace Pathlib

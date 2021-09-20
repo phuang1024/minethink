@@ -18,31 +18,25 @@
 //
 
 #include <iostream>
-#include "config.hpp"
-#include "pathlib/pathlib.hpp"
-#include "gui/gui.hpp"
+#include <unistd.h>
+#include "pathlib.hpp"
 
 
-void print_info() {
-    std::cout << "Minethink: A 3D block based game.\n";
-    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
+namespace Pathlib {
+
+std::string mypath() {
+    char cpath[PATH_MAX];
+    int len = readlink("/proc/self/exe", cpath, sizeof(cpath)-1);
+    cpath[len] = 0;
+    return std::string(cpath);
 }
 
-
-void display() {
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
+Path::~Path() {
 }
 
-
-int main() {
-    print_info();
-
-    Pathlib::Path path;
-
-    // display();
+Path::Path() {
+    _path = mypath();
+    std::cout << _path << std::endl;
 }
+
+}  // namespace Pathlib

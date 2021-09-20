@@ -17,25 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-cmake_minimum_required(VERSION 3.10)
+set(pathlib_sources pathlib.cpp)
 
-project(Minethink VERSION 0.0.1)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-configure_file(config.hpp.in config.hpp)
-
-find_library(x11_path NAMES X11)
-message(STATUS ${x11_path})
-add_library(X11 STATIC IMPORTED)
-set_target_properties(X11 PROPERTIES IMPORTED_LOCATION ${x11_path})
-
-add_subdirectory(pathlib)
-add_subdirectory(gui)
-# add_subdirectory(render)
-
-set(Minethink_sources main.cpp)
-add_executable(Minethink ${Minethink_sources})
-
-target_link_libraries(Minethink pathlib gui)# render)
-target_include_directories(Minethink PUBLIC "${PROJECT_BINARY_DIR}")
+add_library(pathlib ${pathlib_sources})
+target_link_libraries(pathlib)
