@@ -7,3 +7,5 @@ Minethink
    :hidden:
    :maxdepth: 2
    :caption: Contents:
+
+   build.rst
