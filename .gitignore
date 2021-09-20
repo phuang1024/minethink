@@ -4,3 +4,5 @@
 *.so
 
 /build
+
+/docs/_build
