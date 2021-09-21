@@ -17,11 +17,29 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <fstream>
 #include "space3d.hpp"
 
 
 namespace Space3D {
 
+void mesh_write(std::ofstream& fp, const Mesh& mesh) {
+    const int count = mesh.tris.size();
+    fp.write((char*)(&count), sizeof(int));
+    for (int i = 0; i < count; i++)
+        fp.write((char*)(&mesh.tris[i]), sizeof(Tri));
+}
 
+void mesh_read(std::ifstream& fp, Mesh& mesh) {
+    mesh.tris.clear();
+
+    int count;
+    fp.read((char*)(&count), sizeof(int));
+    for (int i = 0; i < count; i++) {
+        Tri tri;
+        fp.read((char*)(&tri), sizeof(Tri));
+        mesh.tris.push_back(tri);
+    }
+}
 
 }  // namespace Space3D

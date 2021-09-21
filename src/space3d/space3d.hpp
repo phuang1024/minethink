@@ -17,6 +17,7 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <fstream>
 #include <vector>
 
 
@@ -44,5 +45,17 @@ struct Tri {
 struct Mesh {
     std::vector<Tri> tris;
 };
+
+/**
+ * Write mesh to binary file.
+ * Recommended file extension: .mtmesh
+ */
+void mesh_write(std::ofstream& fp, const Mesh& mesh);
+
+/**
+ * Read mesh from binary file.
+ * Overwrites param mesh.
+ */
+void mesh_read(std::ifstream& fp, Mesh& mesh);
 
 }  // namespace Space3D
