@@ -23,11 +23,13 @@
 
 namespace Space3D {
 
+// API classes
+// Point classes can also be used as vectors.
+
 /**
- * 3D point.
- * Uses floats to save memory.
+ * Point float 3D
  */
-struct Point {
+struct PF3D {
     float x, y, z;
 };
 
@@ -35,7 +37,7 @@ struct Point {
  * Triangle in 3D space
  */
 struct Tri {
-    Point p1, p2, p3;
+    PF3D p1, p2, p3;
 };
 
 /**
@@ -45,6 +47,36 @@ struct Tri {
 struct Mesh {
     std::vector<Tri> tris;
 };
+
+/**
+ * Perspective camera.
+ * Stores location and direction.
+ */
+struct Camera {
+    /**
+     * Location.
+     */
+    PF3D loc;
+
+    /**
+     * Direction.
+     */
+    PF3D dir;
+
+    /**
+     * Field of view X.
+     * Radians.
+     */
+    float fov;
+
+    /**
+     * Resolution
+     */
+    int x, y;
+};
+
+
+// Utility functions
 
 /**
  * Write mesh to binary file.
