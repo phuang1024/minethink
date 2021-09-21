@@ -19,5 +19,6 @@
 
 #pragma once
 
+typedef  long long           LL;
 typedef  unsigned long long  ULL;
 typedef  unsigned char       UCH;

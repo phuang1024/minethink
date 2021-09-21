@@ -34,16 +34,17 @@ find_library(cv_highgui NAMES opencv_highgui)
 find_library(cv_imgcodecs NAMES opencv_imgcodecs)
 message(STATUS "OpenCV: ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}")
 
-add_subdirectory(pathlib)
+add_subdirectory(argparse)
 add_subdirectory(gui)
-add_subdirectory(space3d)
+add_subdirectory(pathlib)
 add_subdirectory(render)
+add_subdirectory(space3d)
 
 set(Minethink_sources main.cpp)
 add_executable(Minethink ${Minethink_sources})
 
 target_link_libraries(Minethink
-    pathlib gui space3d render
+    argparse gui pathlib render space3d
     ${x11}
     ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}
 )
