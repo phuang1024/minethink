@@ -21,7 +21,7 @@ THREADS = `nproc`
 
 SOURCEDIR = ../src
 
-.PHONY: setup release debug
+.PHONY: release debug docs setup
 
 release: setup
 	cd build; \
@@ -32,6 +32,10 @@ debug: setup
 	cd build; \
 	cmake $(SOURCEDIR) -DCMAKE_BUILD_TYPE=Debug; \
 	make -j$(THREADS)
+
+docs:
+	cd docs; \
+	make html
 
 setup:
 	mkdir -p build
