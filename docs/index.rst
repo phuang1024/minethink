@@ -8,4 +8,5 @@ Minethink
    :maxdepth: 2
    :caption: Contents:
 
+   about.rst
    build.rst
