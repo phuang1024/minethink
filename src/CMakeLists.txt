@@ -36,12 +36,15 @@ message(STATUS "OpenCV: ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}")
 
 add_subdirectory(pathlib)
 add_subdirectory(gui)
-# add_subdirectory(render)
+add_subdirectory(space3d)
+add_subdirectory(render)
 
 set(Minethink_sources main.cpp)
 add_executable(Minethink ${Minethink_sources})
 
-target_link_libraries(Minethink pathlib gui
+target_link_libraries(Minethink
+    pathlib gui space3d render
     ${x11}
-    ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs})
+    ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}
+)
 target_include_directories(Minethink PUBLIC "${PROJECT_BINARY_DIR}")
