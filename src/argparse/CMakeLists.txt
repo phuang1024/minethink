@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(argparse_sources mesh.cpp)
+set(argparse_sources argparse.cpp)
 
 add_library(argparse ${argparse_sources})
 target_link_libraries(argparse)
