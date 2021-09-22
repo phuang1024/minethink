@@ -30,13 +30,29 @@ namespace Space3D {
  * Point float 3D
  */
 struct PF3D {
+    PF3D();
+    PF3D(float x, float y, float z);
+
     float x, y, z;
+};
+
+/**
+ * Point float 2D
+ */
+struct PF2D {
+    PF2D();
+    PF2D(float x, float y);
+
+    float x, y;
 };
 
 /**
  * Triangle in 3D space
  */
 struct Tri {
+    Tri();
+    Tri(PF3D p1, PF3D p2, PF3D p3);
+
     PF3D p1, p2, p3;
 };
 
@@ -51,8 +67,12 @@ struct Mesh {
 /**
  * Perspective camera.
  * Stores location and direction.
+ * Will always remain horizontal (no rotation in the line of sight axis)
  */
 struct Camera {
+    Camera();
+    Camera(PF3D loc, PF3D dir, float fov, int x, int y, float clip);
+
     /**
      * Location.
      */
@@ -69,11 +89,20 @@ struct Camera {
      */
     float fov;
 
-    /**
-     * Resolution
-     */
-    int x, y;
 };
+
+
+// 3D processing functions
+
+/**
+ * Project point onto camera (get x and y pixel values).
+ * If point not visible from camera, return false and set dest to negative values.
+ * Return true otherwise
+ * @param dest destination to store.
+ * @param point point to project.
+ * @param cam camera.
+ */
+bool project(PF2D& dest, PF3D& point, Camera& cam);
 
 
 // Utility functions

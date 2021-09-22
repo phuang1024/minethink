@@ -18,10 +18,49 @@
 //
 
 #include <fstream>
+
 #include "space3d.hpp"
 
 
 namespace Space3D {
+
+PF3D::PF3D() {
+    x = 0;
+    y = 0;
+    z = 0;
+}
+
+PF3D::PF3D(float x, float y, float z) {
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
+
+PF2D::PF2D() {
+    x = 0;
+    y = 0;
+}
+
+PF2D::PF2D(float x, float y) {
+    this->x = x;
+    this->y = y;
+}
+
+Tri::Tri() {
+}
+
+Tri::Tri(PF3D p1, PF3D p2, PF3D p3) {
+    this->p1 = p1;
+    this->p2 = p2;
+    this->p3 = p3;
+}
+
+Camera::Camera() {
+    loc = PF3D(0, 0, 0);
+    dir = PF3D(0, 0, 0);
+    fov = 1.2;
+}
+
 
 void mesh_write(std::ofstream& fp, const Mesh& mesh) {
     const int count = mesh.tris.size();
