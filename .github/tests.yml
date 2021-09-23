@@ -1,0 +1,24 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docs
+        run: |
+          cd ./docs
+          mkdir ./_static ./_templates
+          make html SPHINXOPTS="-W --keep-going"
+
+      - name: Formatting
+        run: python tests/formatting.py
+
+      - name: Build
+        run: make
