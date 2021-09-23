@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Dependencies
+        run: |
+          pip install sphinx sphinx-rtd-theme
+
       - name: Docs
         run: |
           cd ./docs
