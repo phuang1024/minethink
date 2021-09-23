@@ -18,32 +18,23 @@
 //
 
 #include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
-#include "logging/logging.hpp"
-#include "pathlib/pathlib.hpp"
+#include <string>
+
+#include "logging.hpp"
 
 
-void print_info() {
-    std::cout << "Minethink: A 3D block based game.\n";
-    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
+namespace Logging {
+
+void info(std::string msg) {
+    std::cout << "[INFO] " << msg << std::endl;
 }
 
-
-void display() {
-    Logging::info("Opening GUI window.");
-
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
+void warn(std::string msg) {
+    std::cout << "[WARN] " << msg << std::endl;
 }
 
-
-int main() {
-    print_info();
-
-    display();
+void error(std::string msg) {
+    std::cout << "[ERROR] " << msg << std::endl;
 }
+
+}  // namespace Logging

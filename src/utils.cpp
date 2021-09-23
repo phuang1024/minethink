@@ -17,33 +17,4 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
-#include "logging/logging.hpp"
-#include "pathlib/pathlib.hpp"
-
-
-void print_info() {
-    std::cout << "Minethink: A 3D block based game.\n";
-    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
-}
-
-
-void display() {
-    Logging::info("Opening GUI window.");
-
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
-}
-
-
-int main() {
-    print_info();
-
-    display();
-}
+#include "utils.hpp"

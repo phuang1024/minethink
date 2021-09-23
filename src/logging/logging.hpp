@@ -17,33 +17,27 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "config.hpp"
-#include "gui/gui.hpp"
-#include "logging/logging.hpp"
-#include "pathlib/pathlib.hpp"
+#include <string>
 
 
-void print_info() {
-    std::cout << "Minethink: A 3D block based game.\n";
-    std::cout << "Minethink is licensed as GNU GPL v3. See LICENSE for more info.\n";
-    std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH << std::endl;
-}
+namespace Logging {
 
+/**
+ * Log info
+ * [INFO] Your message
+ */
+void info(std::string msg);
 
-void display() {
-    Logging::info("Opening GUI window.");
+/**
+ * Log warning
+ * [WARN] Your message
+ */
+void warn(std::string msg);
 
-    GUI::GuiWindow window;
-    while (true) {
-        GUI::XEvent event;
-        window.next_event(event);
-    }
-}
+/**
+ * Log error
+ * [ERROR] Your message
+ */
+void error(std::string msg);
 
-
-int main() {
-    print_info();
-
-    display();
-}
+}  // namespace Logging
