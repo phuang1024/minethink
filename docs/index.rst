@@ -10,3 +10,4 @@ Minethink
 
    about.rst
    build.rst
+   usage.rst

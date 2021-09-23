@@ -21,21 +21,30 @@ THREADS = `nproc`
 
 SOURCEDIR = ../src
 
-.PHONY: release debug docs setup
+.PHONY: help release debug install docs
 
-release: setup
+help:
+	@echo "Minethink makefile help:"
+	@echo "- make release: Build optimized release executable."
+	@echo "- make debug: Build debug executable."
+	@echo "- make install: Copy executable to /usr/games/minethink. May require sudo."
+	@echo "- make docs: Build sphinx documentation in docs/"
+
+release:
+	mkdir -p build
 	cd build; \
 	cmake $(SOURCEDIR) -DCMAKE_BUILD_TYPE=Release; \
 	make -j$(THREADS)
 
-debug: setup
+debug:
+	mkdir -p build
 	cd build; \
 	cmake $(SOURCEDIR) -DCMAKE_BUILD_TYPE=Debug; \
 	make -j$(THREADS)
 
+install:
+	cp build/Minethink /usr/games/minethink
+
 docs:
 	cd docs; \
 	make html
-
-setup:
-	mkdir -p build
