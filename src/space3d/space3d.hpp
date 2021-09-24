@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * API for manipulating 3D data.
+ */
+
 #include <fstream>
 #include <vector>
 

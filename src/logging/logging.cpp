@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Implementations for logging.
+ */
+
 #include <iostream>
 #include <string>
 

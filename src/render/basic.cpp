@@ -17,13 +17,13 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-/*
- This engine is called "basic".
- It calculates the brightness of each face,
- and renders the whole face with that color.
- Ambient Occlusion may be added in the future.
-*/
+/**
+ * Render engine named "basic"
+ * It calculates the brightness of each face,
+ * and renders the whole face with that color.
+ */
 
+#include "render.hpp"
 
 
 namespace Render {

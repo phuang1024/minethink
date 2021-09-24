@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Declarations for X11 API abstraction.
+ */
+
 #pragma once
 
 #include "../utils.hpp"

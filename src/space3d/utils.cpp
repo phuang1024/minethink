@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Implementations for general utilities.
+ */
+
 #include <fstream>
 
 #include "space3d.hpp"

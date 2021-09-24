@@ -17,6 +17,11 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Declarations for logging info to stdout.
+ * TODO use env vars to control logging levels.
+ */
+
 #include <string>
 
 

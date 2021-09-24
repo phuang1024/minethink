@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Declarations for CLI argument parsing.
+ */
+
 #pragma once
 
 #include <map>

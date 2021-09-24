@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Implementations to open and manage windows through X11.
+ */
+
 #include "gui.hpp"
 
 

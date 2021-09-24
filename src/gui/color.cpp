@@ -17,6 +17,11 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Implementations for color processing SPECIFIC to X11.
+ * For general color processing, look in utils.hpp
+ */
+
 #include "gui.hpp"
 
 

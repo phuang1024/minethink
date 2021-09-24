@@ -17,6 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+/**
+ * Implementations for CLI argument parsing.
+ */
+
 #include <map>
 #include <string>
 #include <vector>
