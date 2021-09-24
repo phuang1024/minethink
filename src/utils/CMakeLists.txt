@@ -17,8 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(argparse_sources argparse.cpp)
+set(utils_sources utils.cpp)
 
-add_library(argparse ${argparse_sources})
-target_link_libraries(argparse utils)
-target_include_directories(argparse PUBLIC "${PROJECT_SOURCE_DIR}/utils")
+add_library(utils ${utils_sources})
+target_link_libraries(utils)

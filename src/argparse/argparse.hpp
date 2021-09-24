@@ -27,7 +27,7 @@
 #include <string>
 #include <vector>
 
-#include "../utils.hpp"
+#include "utils.hpp"
 
 
 namespace Argparse {

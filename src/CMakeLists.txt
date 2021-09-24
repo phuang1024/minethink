@@ -40,13 +40,14 @@ add_subdirectory(logging)
 add_subdirectory(pathlib)
 add_subdirectory(render)
 add_subdirectory(space3d)
+add_subdirectory(utils)
 
-set(Minethink_sources main.cpp utils.cpp)
+set(Minethink_sources main.cpp)
 add_executable(Minethink ${Minethink_sources})
 
 target_link_libraries(Minethink
-    argparse gui logging pathlib render space3d
+    argparse gui logging pathlib render space3d utils
     ${x11}
     ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}
 )
-target_include_directories(Minethink PUBLIC "${PROJECT_BINARY_DIR}")
+target_include_directories(Minethink PUBLIC "${PROJECT_SOURCE_DIR}")

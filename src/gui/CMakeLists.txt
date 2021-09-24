@@ -20,4 +20,5 @@
 set(gui_sources color.cpp window.cpp)
 
 add_library(gui ${gui_sources})
-target_link_libraries(gui X11)
+target_link_libraries(gui utils X11)
+target_include_directories(gui PUBLIC "${PROJECT_SOURCE_DIR}/utils")
