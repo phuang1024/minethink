@@ -19,9 +19,18 @@
 
 cmake_minimum_required(VERSION 3.10)
 
+find_package(Git)
+
 project(Minethink VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+execute_process(
+    COMMAND ${GIT_EXECUTABLE} describe --match=asdf --always --abbrev=40 --dirty
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    OUTPUT_VARIABLE GIT_HASH
+    ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
 configure_file(config.hpp.in config.hpp)
 

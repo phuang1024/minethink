@@ -20,3 +20,7 @@
 #define  VMAJOR  @Minethink_VERSION_MAJOR@
 #define  VMINOR  @Minethink_VERSION_MINOR@
 #define  VPATCH  @Minethink_VERSION_PATCH@
+
+#include <string>
+
+const std::string GIT_HASH = "@GIT_HASH@";
