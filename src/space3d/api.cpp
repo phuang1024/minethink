@@ -17,8 +17,6 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <fstream>
-
 #include "space3d.hpp"
 
 
@@ -59,26 +57,6 @@ Camera::Camera() {
     loc = PF3D(0, 0, 0);
     dir = PF3D(0, 0, 0);
     fov = 1.2;
-}
-
-
-void mesh_write(std::ofstream& fp, const Mesh& mesh) {
-    const int count = mesh.tris.size();
-    fp.write((char*)(&count), sizeof(int));
-    for (int i = 0; i < count; i++)
-        fp.write((char*)(&mesh.tris[i]), sizeof(Tri));
-}
-
-void mesh_read(std::ifstream& fp, Mesh& mesh) {
-    mesh.tris.clear();
-
-    int count;
-    fp.read((char*)(&count), sizeof(int));
-    for (int i = 0; i < count; i++) {
-        Tri tri;
-        fp.read((char*)(&tri), sizeof(Tri));
-        mesh.tris.push_back(tri);
-    }
 }
 
 }  // namespace Space3D

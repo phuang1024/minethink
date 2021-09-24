@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(space3d_sources mesh.cpp)
+set(space3d_sources api.cpp proc3d.cpp utils.cpp)
 
 add_library(space3d ${space3d_sources})
 target_link_libraries(space3d)

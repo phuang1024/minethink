@@ -91,6 +91,25 @@ struct Camera {
 
 };
 
+/**
+ * Represents one scene with meshes and a camera.
+ */
+struct Scene {
+    Camera cam;
+
+    std::vector<Mesh> meshes;
+
+    /**
+     * Minimum distance a face can be to be rendered.
+     */
+    float clip_start = 0.01;
+
+    /**
+     * Maximum distance a face can be to be rendered.
+     */
+    float clip_end = 1000;
+};
+
 
 // 3D processing functions
 
@@ -118,5 +137,17 @@ void mesh_write(std::ofstream& fp, const Mesh& mesh);
  * Overwrites param mesh.
  */
 void mesh_read(std::ifstream& fp, Mesh& mesh);
+
+/**
+ * Write scene to binary file.
+ * Recommended file extension: .mtscn
+ */
+void scene_write(std::ofstream& fp, const Scene& scene);
+
+/**
+ * Read scene from binary file.
+ * Overwrites param scene.
+ */
+void scene_read(std::ifstream& fp, Scene& scene);
 
 }  // namespace Space3D
