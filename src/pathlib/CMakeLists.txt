@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(pathlib_sources pathlib.cpp)
+set(pathlib_sources pathlib.cpp pathlib.hpp)
 
 add_library(pathlib ${pathlib_sources})
 target_link_libraries(pathlib)

@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(render_sources basic.cpp)
+set(render_sources basic.cpp render.hpp)
 
 add_library(render ${render_sources})
 target_link_libraries(render)

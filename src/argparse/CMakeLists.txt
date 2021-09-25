@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(argparse_sources argparse.cpp)
+set(argparse_sources argparse.cpp argparse.hpp)
 
 add_library(argparse ${argparse_sources})
 target_link_libraries(argparse utils)

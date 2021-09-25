@@ -17,7 +17,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-set(logging_sources logging.cpp)
+set(logging_sources logging.cpp logging.hpp)
 
 add_library(logging ${logging_sources})
 target_link_libraries(logging)
