@@ -118,14 +118,12 @@ struct Scene {
 // 3D processing functions
 
 /**
- * Project point onto camera (get x and y pixel values).
- * If point not visible from camera, return false and set dest to negative values.
- * Return true otherwise
- * @param dest destination to store.
- * @param point point to project.
- * @param cam camera.
+ * Relative position from camera.
+ * From POV of cam, X is left-right, Y is front-back, Z is up-down.
+ * Only does rotation and translation transforms.
+ * @param dest destination variable to store.
  */
-bool project(PF2D& dest, PF3D& point, Camera& cam);
+void relpos(Camera& cam, PF3D& dest, PF3D& src);
 
 
 // Utility functions

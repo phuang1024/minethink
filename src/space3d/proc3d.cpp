@@ -26,8 +26,7 @@
 
 namespace Space3D {
 
-bool project(PF2D& dest, PF3D& point, Camera& cam) {
-// TODO
+void relpos(Camera& cam, PF3D& dest, PF3D& src) {
 }
 
 }  // namespace Space3D
