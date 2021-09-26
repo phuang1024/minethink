@@ -17,6 +17,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+BINDIR = /usr/local/games
+
 THREADS = `nproc`
 
 SOURCEDIR = ../src
@@ -43,7 +45,10 @@ debug:
 	make -j$(THREADS)
 
 install:
-	cp build/Minethink /usr/games/minethink
+	mkdir -p $(BINDIR)/minethinkf
+	cp build/Minethink $(BINDIR)/minethinkf
+	cp -r build/datafiles $(BINDIR)/minethinkf
+	ln -s $(BINDIR)/minethinkf/Minethink $(BINDIR)/minethink
 
 docs:
 	cd docs; \

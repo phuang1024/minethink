@@ -25,3 +25,12 @@ Building
 
     make release  # for fast release version, or
     make debug    # for debugging
+
+Installation
+------------
+
+After building, you can either run the executable or install it to ``/usr/local/games``.
+
+Run the executable with ``./build/Minethink``.
+
+Install it with ``sudo make install``.
