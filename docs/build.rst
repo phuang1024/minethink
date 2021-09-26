@@ -12,8 +12,10 @@ Install those packages:
 Dependencies
 ------------
 
-* OpenCV: See `opencv.org <https://opencv.org>`__ for build and install instructions.
-* X11: ``sudo apt install libx11-dev``
+- FFmpeg
+- OpenCV
+- X11
+- Eigen
 
 Building
 --------
