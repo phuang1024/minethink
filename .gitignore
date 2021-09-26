@@ -6,3 +6,7 @@
 /build
 
 /docs/_build
+
+/lib/build
+/lib/include
+/lib/lib
