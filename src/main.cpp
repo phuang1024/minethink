@@ -29,7 +29,7 @@ void print_info() {
     std::cout << "Licensed as GNU GPL v3. See LICENSE for more info." << std::endl;
     std::cout << "Version " << VMAJOR << "." << VMINOR << "." << VPATCH;
     std::cout << "  Git SHA1: " << GIT_HASH << std::endl;
-    std::cout << "Built " << __DATE__ << ", " << __TIME__ << std::endl;
+    std::cout << "Built on " << __DATE__ << ", " << __TIME__ << std::endl;
 }
 
 
