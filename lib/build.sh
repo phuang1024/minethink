@@ -23,7 +23,17 @@
 
 # Setup
 mkdir -p ./build ./include ./lib
+C_INCLUDE_PATH="`realpath ./include`:$C_INCLUDE_PATH"
+CPLUS_INCLUDE_PATH="`realpath ./include`:$CPLUS_INCLUDE_PATH"
+LD_LIBRARY_PATH="`realpath ./lib`:$LD_LIBRARY_PATH"
 cd ./build
+
+
+# Eigen
+git clone https://gitlab.com/libeigen/eigen.git
+mkdir ../include/unsupported
+cp -r ./eigen/Eigen ../include
+cp -r ./eigen/Eigen ../include/unsupported
 
 
 # FFmpeg
@@ -33,7 +43,6 @@ cd ./ffmpeg
 # x264
 git clone --depth 1 https://code.videolan.org/videolan/x264.git
 cd ./x264
-PKG_CONFIG_PATH=./pkgconfig
 ./configure --prefix=./build --bindir=./bin --enable-static --enable-pic
 make -j`nproc`
 make install
@@ -52,3 +61,20 @@ make install
 cp ./build/include/*.h ../../../../../include
 cp ./build/lib/*.a ../../../../../lib
 cd ../../..
+
+cd ..
+
+
+# OpenCV
+# Not done yet
+if false; then
+wget https://github.com/opencv/opencv/archive/refs/tags/4.5.3.zip
+unzip 4.5.3.zip
+rm 4.5.3.zip
+cd ./opencv-4.5.3
+
+mkdir ./build
+cd ./build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./build ..
+make -j`nproc`
+fi
