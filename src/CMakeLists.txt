@@ -54,14 +54,12 @@ find_library(cv_highgui NAMES opencv_highgui)
 find_library(cv_imgcodecs NAMES opencv_imgcodecs)
 message(STATUS "OpenCV: ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}")
 
-add_subdirectory(argparse)
-add_subdirectory(gui)
-add_subdirectory(logging)
-add_subdirectory(pathlib)
-add_subdirectory(render)
-add_subdirectory(space3d)
-add_subdirectory(tests)
-add_subdirectory(utils)
+set(submods "")
+list(APPEND submods argparse gui logging pathlib render space3d tests utils)
+
+foreach(submod ${submods})
+    add_subdirectory(${submod})
+endforeach()
 
 # Link and include
 target_link_libraries(Minethink
