@@ -60,11 +60,12 @@ add_subdirectory(logging)
 add_subdirectory(pathlib)
 add_subdirectory(render)
 add_subdirectory(space3d)
+add_subdirectory(tests)
 add_subdirectory(utils)
 
 # Link and include
 target_link_libraries(Minethink
-    argparse gui logging pathlib render space3d utils
+    argparse gui logging pathlib render space3d tests utils
     ${x11}
     ${cv_core} ${cv_imgproc} ${cv_highgui} ${cv_imgcodecs}
 )
