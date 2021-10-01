@@ -25,19 +25,23 @@
 #include <string>
 
 #include "logging.hpp"
+#include "../utils/utils.hpp"
 
 
 namespace Logging {
 
 void info(std::string msg) {
+    ShColor::set(130, 130, 220);
     std::cout << "[INFO] " << msg << std::endl;
 }
 
 void warn(std::string msg) {
+    ShColor::set(220, 220, 130);
     std::cout << "[WARN] " << msg << std::endl;
 }
 
 void error(std::string msg) {
+    ShColor::set(220, 130, 130);
     std::cout << "[ERROR] " << msg << std::endl;
 }
 

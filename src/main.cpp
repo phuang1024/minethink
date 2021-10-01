@@ -22,6 +22,7 @@
 #include "gui/gui.hpp"
 #include "logging/logging.hpp"
 #include "pathlib/pathlib.hpp"
+#include "utils/utils.hpp"
 
 
 void print_info() {
@@ -45,6 +46,7 @@ void display() {
 
 
 int main() {
+    ShColor::reset();
     print_info();
 
     display();

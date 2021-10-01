@@ -28,19 +28,19 @@
 namespace Logging {
 
 /**
- * Log info
+ * Log info as blue color.
  * [INFO] Your message
  */
 void info(std::string msg);
 
 /**
- * Log warning
+ * Log warning as orange color.
  * [WARN] Your message
  */
 void warn(std::string msg);
 
 /**
- * Log error
+ * Log error as red color.
  * [ERROR] Your message
  */
 void error(std::string msg);

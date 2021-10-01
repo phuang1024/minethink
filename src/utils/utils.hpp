@@ -22,3 +22,20 @@
 typedef  long long           LL;
 typedef  unsigned long long  ULL;
 typedef  unsigned char       UCH;
+
+
+namespace ShColor {
+
+/**
+ * Set stdout color to rgb.
+ * 0 to 255.
+ */
+void set(UCH r, UCH g, UCH b);
+
+/**
+ * Set stdout color to white.
+ * Shortcut for set(255, 255, 255);
+ */
+void reset();
+
+}

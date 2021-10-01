@@ -17,4 +17,19 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <stdio.h>
+
 #include "utils.hpp"
+
+
+namespace ShColor {
+
+void set(UCH r, UCH g, UCH b) {
+    printf("\033[38;2;%u;%u;%um", r, g, b);
+}
+
+void reset() {
+    set(220, 220, 220);
+}
+
+}
