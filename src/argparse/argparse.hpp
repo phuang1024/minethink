@@ -32,19 +32,19 @@
 
 namespace Argparse {
 
-struct Argument {
+/**
+ * One argument.
+ * Currently, only positional is supported.
+ */
+class Argument {
+public:
     /**
-     * Documentation string.
+     * List of strings that can be used to set this argument.
      */
-    std::string doc;
+    std::vector<std::string> identifiers;
 
     /**
-     * Possible ways to set this argument.
-     */
-    std::vector<std::string> names;
-
-    /**
-     * Whether the user included this argument in the args.
+     * Whether the set this argument in the args.
      */
     bool passed;
 
@@ -53,10 +53,6 @@ struct Argument {
      */
     std::string value;
 
-    Argument();
-
-    Argument(std::string doc, std::vector<std::string> names);
-
     int as_int();
 
     LL as_ll();
@@ -64,42 +60,23 @@ struct Argument {
     float as_float();
 
     double as_double();
+
+private:
 };
 
+/**
+ * Set of argument parsing rules.
+ */
 class Parser {
 public:
-    ~Parser();
+    std::string description;
 
-    Parser();
-
-    /**
-     * @param help whether to add help argument.
-     */
-    Parser(bool help);
+    Parser(std::string description);
 
     /**
-     * Get an argument.
-     * @param key the key set in add_argument.
+     * Add a identifier-argument pair.
      */
-    Argument& get(std::string key);
-
-    /**
-     * Add an argument to the target arguments.
-     * @param key the string key to use Parser.get() on.
-     * @param arg argument instance.
-     */
-    void add_argument(std::string key, Argument arg);
-
-    /**
-     * Add --help, -h argument.
-     */
-    void add_help();
-
-    /**
-     * Call this to do the actual parsing.
-     * Stores the value attr of each Argument.
-     */
-    void parse(int argc, char** argv);
+    void add(std::string identifier, Argument arg);
 
 private:
     std::map<std::string, Argument> _args;

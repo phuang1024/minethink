@@ -34,16 +34,6 @@ using std::vector;
 
 namespace Argparse {
 
-Argument::Argument() {
-    passed = false;
-}
-
-Argument::Argument(string doc, vector<string> names) {
-    this->doc = doc;
-    this->names = names;
-    passed = false;
-}
-
 int Argument::as_int() {
     return std::stoi(value);
 }
@@ -61,27 +51,12 @@ double Argument::as_double() {
 }
 
 
-Parser::~Parser() {
+Parser::Parser(std::string description) {
+    this->description = description;
 }
 
-Parser::Parser() {
-}
-
-Parser::Parser(bool help) {
-    if (help)
-        add_help();
-}
-
-Argument& Parser::get(string key) {
-    return _args[key];
-}
-
-void Parser::add_argument(string key, Argument arg) {
-    _args[key] = arg;
-}
-
-void Parser::add_help() {
-    add_argument("help", Argument("Show this help message", {"-h", "--help"}));
+void Parser::add(std::string identifier, Argument arg) {
+    _args[identifier] = arg;
 }
 
 }  // namespace Argparse
