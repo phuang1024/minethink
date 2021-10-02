@@ -21,6 +21,7 @@
  * Implementations for CLI argument parsing.
  */
 
+#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
@@ -33,6 +34,11 @@ using std::vector;
 
 
 namespace Argparse {
+
+Argument::Argument(std::vector<std::string> identifiers) {
+    this->identifiers = identifiers;
+    passed = false;
+}
 
 int Argument::as_int() {
     return std::stoi(value);
@@ -53,6 +59,9 @@ double Argument::as_double() {
 
 Parser::Parser(std::string description) {
     this->description = description;
+}
+
+void Parser::print_help() {
 }
 
 void Parser::add(std::string identifier, Argument arg) {

@@ -53,6 +53,8 @@ public:
      */
     std::string value;
 
+    Argument(std::vector<std::string> identifiers);
+
     int as_int();
 
     LL as_ll();
@@ -72,6 +74,11 @@ public:
     std::string description;
 
     Parser(std::string description);
+
+    /**
+     * Write help message to stdout.
+     */
+    void print_help();
 
     /**
      * Add a identifier-argument pair.
